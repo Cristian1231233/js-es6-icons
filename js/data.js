@@ -1,4 +1,4 @@
-[
+const animals = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,22 @@
 		color: 'blue'
 	}
 ];
+
+const menu = document.querySelector('.contPrinc');
+
+const [name, prefix, type, family, color] = animals;
+console.log(name, prefix, type, family, color);
+let html = '';
+for( let member in animals){
+   const animal = animals[member]
+  html += 
+  `
+     <div class="contenitore me-3">
+       <div class="icona-text text-center">
+	      <i class="${animal.family} ${animal.prefix}${animal.name}"></i> <br>
+	      <span class="testo"><strong>CAT</strong></span>
+       </div>
+    </div>
+  `;
+}
+menu.innerHTML = html;
