@@ -114,9 +114,12 @@ const animals = [
 ];
 
 const menu = document.querySelector('.contPrinc');
+cicloAnimali();
+function cicloAnimali(){
 
-const [name, prefix, type, family, color] = animals;
-console.log(name, prefix, type, family, color);
+
+// const [name, prefix, type, family, color] = animals;
+// console.log(name, prefix, type, family, color);
 let html = '';
 for( let member in animals){
    const animal = animals[member]
@@ -125,9 +128,24 @@ for( let member in animals){
      <div class="contenitore me-3">
        <div class="icona-text text-center">
 	      <i class="${animal.family} ${animal.prefix}${animal.name}"></i> <br>
-	      <span class="testo"><strong>CAT</strong></span>
+	      <span class="testo"><strong>${animal.name}</strong></span>
        </div>
     </div>
   `;
 }
+
 menu.innerHTML = html;
+}
+// prendo il valore della select
+let select = document.getElementById('selezione').value;
+// if (select === 'animal'){
+     
+// }
+select.addEventListner('click', function(){
+if(select === 'animal'){
+	
+ const onlyAnimals = animals.filter((animal)=>animal.type === 'animal');
+ cicloAnimali()
+
+}
+});
